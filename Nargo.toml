@@ -1,2 +1,7 @@
-[workspace]
-members = ["packages/counter"]
+[package]
+compiler_version = ">=0.23.0"
+name = "counter"
+type = "contract"
+
+[dependencies]
+aztec = {git = "https://github.com/AztecProtocol/aztec-packages/", tag = "aztec-packages-v0.21.0", directory = "yarn-project/aztec-nr/aztec"}

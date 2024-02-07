@@ -26,27 +26,26 @@ contract Counter {
     #[aztec(private)]
     fn constructor() {}
 
-    #[aztec(public)]
     unconstrained fn value() -> pub Field {
         storage.value.read()
     }
 
     #[aztec(public)]
-    unconstrained fn increment() -> pub Field {
+    fn increment() -> pub Field {
         let value = storage.value.read() + 1;
         storage.value.write(value);
         value
     }
 
     #[aztec(public)]
-    unconstrained fn decrement() -> pub Field {
+    fn decrement() -> pub Field {
         let value = storage.value.read() - 1;
         storage.value.write(value);
         value
     }
 
     #[aztec(public)]
-    unconstrained fn reset() -> pub Field {
+    fn reset() -> pub Field {
         storage.value.write(0);
         0
     }
