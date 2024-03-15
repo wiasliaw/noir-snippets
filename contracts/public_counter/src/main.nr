@@ -1,24 +1,17 @@
 contract Counter {
     // import
-    use dep::aztec::protocol_types::{
-        abis::function_selector::FunctionSelector,
-        address::AztecAddress,
-    };
-    use dep::aztec::{
-        context::Context,
-        state_vars::{map::Map, public_state::PublicState},
-        types::type_serialization::field_serialization::{FieldSerializationMethods, FIELD_SERIALIZED_LEN},
-    };
+    use dep::aztec::prelude::{AztecAddress, PublicMutable};
+    use dep::aztec::context::Context;
 
     // storage
     struct Storage {
-        value: PublicState<Field, FIELD_SERIALIZED_LEN>,
+        value: PublicMutable<Field>,
     }
 
     impl Storage {
         fn init(context: Context) -> Self {
             Storage {
-                value: PublicState::new(context, 1, FieldSerializationMethods),
+                value: PublicMutable::new(context, 1),
             }
         }
     }
@@ -48,14 +41,5 @@ contract Counter {
     fn reset() -> pub Field {
         storage.value.write(0);
         0
-    }
-
-    unconstrained fn compute_note_hash_and_nullifier(
-        contract_address: AztecAddress,
-        nonce: Field,
-        storage_slot: Field,
-        serialized_note: [Field; 0]
-    ) -> pub [Field; 4] {
-        [0, 0, 0, 0]
     }
 }

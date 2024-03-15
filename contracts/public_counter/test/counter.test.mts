@@ -1,11 +1,12 @@
-import { createAccount, getDeployedTestAccountsWallets } from '@aztec/accounts/testing';
+import {describe, beforeAll, beforeEach, test, expect} from 'vitest'
+import { createAccount } from '@aztec/accounts/testing';
 import {
   AccountWallet,
   PXE,
   createPXEClient,
   waitForPXE,
 } from '@aztec/aztec.js';
-import { CounterContract } from '../artifacts/Counter.js';
+import { CounterContract } from '../../../artifacts/Counter';
 
 describe("Counter", () => {
   let pxe: PXE;
@@ -14,18 +15,17 @@ describe("Counter", () => {
 
   beforeAll(async () => {
     pxe = createPXEClient("http://localhost:8080");
+    owner = await createAccount(pxe);
     await waitForPXE(pxe);
-  });
+  }, 10_000);
 
   beforeEach(async () => {
-    owner = await createAccount(pxe);
     counter = await CounterContract.deploy(owner)
       .send()
       .deployed();
-  }, 60_000);
+  });
 
   test('test value()', async () => {
-    // https://github.com/Swatinem/rollup-plugin-dts/issues/156
     expect(await counter.methods.value().view()).toEqual(0n);
   });
 
