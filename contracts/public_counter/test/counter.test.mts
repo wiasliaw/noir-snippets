@@ -6,7 +6,7 @@ import {
   createPXEClient,
   waitForPXE,
 } from '@aztec/aztec.js';
-import { CounterContract } from '../../../artifacts/Counter';
+import { CounterContract } from '../../../artifacts/Counter.js';
 
 describe("Counter", () => {
   let pxe: PXE;

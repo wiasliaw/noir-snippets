@@ -1,5 +1,4 @@
 [package]
-authors = [""]
 compiler_version = ">=0.25.0"
 name = "public_counter"
 type = "contract"

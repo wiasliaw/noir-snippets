@@ -18,8 +18,8 @@ describe('timestamp circuit test', () => {
   let noir: Noir;
 
   beforeAll(async () => {
-    backend = new BarretenbergBackend(circuit);
-    noir = new Noir(circuit, backend);
+    backend = new BarretenbergBackend(circuit as any);
+    noir = new Noir(circuit as any, backend);
   });
 
   test('covert date string to unix time', async () => {

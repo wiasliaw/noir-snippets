@@ -1,4 +1,4 @@
-# Aztec Contract in Dev
+# aztec contract and circuits snippets
 
 ## TL;DR
 

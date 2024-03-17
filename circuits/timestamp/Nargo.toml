@@ -1,7 +1,6 @@
 [package]
+compiler_version = ">=0.25.0"
 name = "timestamp"
 type = "bin"
-authors = [""]
-compiler_version = ">=0.25.0"
 
 [dependencies]

@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
+    "types": ["vitest/globals"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "useDefineForClassFields": false,
-    "outDir": "dist"
+    "skipLibCheck": true
   },
-  "include": ["test"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
