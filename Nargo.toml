@@ -1,2 +1,6 @@
 [workspace]
-members = ["circuits/timestamp", "contracts/public_counter"]
+members = [
+  "circuits/timestamp",
+  "contracts/public_counter",
+  "circuits/poseidon",
+]
