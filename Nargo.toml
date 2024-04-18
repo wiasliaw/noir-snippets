@@ -3,4 +3,5 @@ members = [
   "circuits/timestamp",
   "contracts/public_counter",
   "circuits/poseidon",
+  "./circuits/sha256",
 ]
