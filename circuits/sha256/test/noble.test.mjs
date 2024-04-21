@@ -5,7 +5,7 @@ import {sha256} from '@noble/hashes/sha256';
 
 import circuit from '../../../target/sha256.json';
 
-describe('sha256', () => {
+describe('@noble/hashes/sha256', () => {
   let backend;
   let noir;
 
@@ -16,7 +16,11 @@ describe('sha256', () => {
 
   it('differential', async () => {
     const data = [163, 117, 178, 149];
-    const result = Array.from(sha256(new Uint8Array(data)));
+    const hash = sha256(new Uint8Array(data));
+    const result = Array.from(hash);
+
+    // console.log(Buffer.from(hash).toString('hex'));
+    // console.log(result);
 
     const proof = await noir.generateProof({data, result});
     const verification = await noir.verifyProof(proof);
